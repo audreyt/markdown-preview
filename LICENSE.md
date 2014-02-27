@@ -1,3 +1,13 @@
+CC0 1.0 Universal
+
+To the extent possible under law, 唐鳳 has waived all copyright and related or neighboring rights to `markdown-preview-ghcjs`.
+
+This work is published from Taiwan.
+
+<http://creativecommons.org/publicdomain/zero/1.0>
+
+Based on <http://github.com/atom/markdown-preview>:
+
 Copyright (c) 2014 GitHub Inc.
 
 Permission is hereby granted, free of charge, to any person obtaining
