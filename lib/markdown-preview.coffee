@@ -5,12 +5,12 @@ MarkdownPreviewView = require './markdown-preview-view'
 
 module.exports =
   activate: ->
-    atom.workspaceView.command 'markdown-preview:show', =>
+    atom.workspaceView.command 'markdown-preview-ghcjs:show', =>
       @show()
 
     atom.workspace.registerOpener (uriToOpen) ->
       {protocol, pathname} = url.parse(uriToOpen)
-      return unless protocol is 'markdown-preview:' and fs.isFileSync(pathname)
+      return unless protocol is 'markdown-preview-ghcjs:' and fs.isFileSync(pathname)
       new MarkdownPreviewView(pathname)
 
   show: ->
@@ -26,7 +26,7 @@ module.exports =
       return
 
     previousActivePane = atom.workspace.getActivePane()
-    uri = "markdown-preview://#{editor.getPath()}"
+    uri = "markdown-preview-ghcjs://#{editor.getPath()}"
     atom.workspace.open(uri, split: 'right', searchAllPanes: true).done (markdownPreviewView) ->
       if markdownPreviewView instanceof MarkdownPreviewView
         markdownPreviewView.renderMarkdown()

@@ -39,18 +39,15 @@ class MarkdownPreviewView extends ScrollView
   renderMarkdown: ->
     @showLoading()
     @file.read().then (contents) =>
-      roaster = require 'roaster'
-      roaster contents, (error, html) =>
-        if error
-          @showError(error)
-        else
-          @html(@tokenizeCodeBlocks(@resolveImagePaths(html)))
+      @render ||= require('./render.js')
+      @render contents, (html) =>
+        @html(@tokenizeCodeBlocks(@resolveImagePaths(html)))
 
   getTitle: ->
-    "#{path.basename(@getPath())} Preview"
+    "#{path.basename(@getPath())} Preview (GHCJS)"
 
   getUri: ->
-    "markdown-preview://#{@getPath()}"
+    "markdown-preview-ghcjs://#{@getPath()}"
 
   getPath: ->
     @file.getPath()

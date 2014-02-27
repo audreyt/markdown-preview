@@ -1,10 +1,10 @@
 'menu': [
   'label': 'Packages'
   'submenu': [
-    'label': 'Markdown'
+    'label': 'Markdown (GHCJS)'
     'submenu': [
       'label': 'Preview Buffer'
-      'command': 'markdown-preview:show'
+      'command': 'markdown-preview-ghcjs:show'
     ]
   ]
 ]
